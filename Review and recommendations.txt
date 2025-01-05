@@ -1,0 +1,16 @@
+After going through the code here's my review and recommendation
+
+REVIEW
+-Hardcoded encryption key (vulnarable to reverse engineering)
+-Temporary Exposure of sensitive data (Notepad when decrypting)
+-Weak Xor Encryption
+-Error handling and Validation
+-System call(system) risks issues: system("notepad password.txt") is vulnerable to command injection
+
+Recommendations
+-Minimize privileges: ensure the progeam runs with the least privileges required
+-Avoid hardcoded credentials: Dynamically prompt for or securely generate keys
+-Input Validation: Ensure all user inputs are validated
+-Use secure libraries: Replace custom XOR Encryption with Libraries like Crypto+ or OPENSSL
+-Secure file handling: Avoid exposing plaintext files
+-Overwrite sensitive data in memory defore deletion.
